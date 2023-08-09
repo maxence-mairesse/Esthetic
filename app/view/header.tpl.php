@@ -13,10 +13,10 @@
 <header>
     <div class="logo">
         <div class="brand">
-            <h2><a href="<?= $absoluteURL?>">
-                    <i class="fa-solid fa-house"></i>Home
+            <h1><a href="<?= $absoluteURL?>">
+                    Nuance de douceurs
                 </a>
-            </h2>
+            </h1>
         </div>
         <div class="button">
             <button id="buttonNav">
@@ -29,7 +29,7 @@
     </div>
 
     <nav class="display">
-    <div class="bg"> </div>
+        <div class="bg"> </div>
         <div class="navigations">
 
 
@@ -42,13 +42,40 @@
 
         </div>
     </nav>
-    <div class="left">
+<div class="slider">
 
-    <p ><i class="fa-solid fa-chevron-left"></i></p>
+
+    <div class="slider_button">
+        <div class="left">
+
+            <p ><i class="fa-solid fa-chevron-left"></i></p>
+        </div>
+        <div class="right">
+
+            <p ><i class="fa-solid fa-chevron-right"></i></p>
+        </div>
+
     </div>
-    <?php for($i=0;$i<1;$i++): ?>
-        <img src="<?= $absoluteURL?>/<?=$viewData['types'][$i]->getPicture()?>" alt="img">
-    <?php endfor;?>
+
+    <?php foreach($viewData['types'] as $type): ?>
+        <?php if ($type->getPicture() !== null):?>
+            <h3 class="slider-title display"> <a href="#"><?=$type->getName()?> </a> </h3>
+            <img src="<?= $absoluteURL?>/<?=$type->getPicture()?>" alt="img" class="display img-slider">
+            <div class="box-slider-bar">
+
+                <?php for ($i=0; $i<count($viewData['types'])-1;$i++):?>
+                    <hr class="bar ">
+                <?php endfor;?>
+            </div>
+        <?php endif;?>
+
+    <?php endforeach;?>
+
+
+
+
+</div>
+
     </main>
 </header>
 
