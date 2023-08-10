@@ -36,12 +36,13 @@ let slider={
         const img = document.querySelectorAll("img");
         const sliderBar = document.querySelectorAll('hr')
         const sliderTitle = document.querySelectorAll(".slider-title")
-        img[slider.currentIndex].style.transition= '1s'
-        img[slider.currentIndex-1].style.transition= '1s'
+
 
 
 
         if (slider.currentIndex !== img.length) {
+            img[slider.currentIndex].style.transition= '1s'
+            img[slider.currentIndex-1].style.transition= '1s'
             sliderTitle[slider.currentIndex -1].style.opacity = '0'
 
 
@@ -74,6 +75,8 @@ let slider={
             sliderBar[slider.currentIndex-1].classList.remove('active')
         } else {
             slider.currentIndex = 0
+            img[0].style.transition= '1s'
+            img[img.length-1].style.transition= '1s'
             img[0].style.zIndex=1
             img[img.length-1].style.zIndex='0'
             img[img.length-1].style.left='100vw'
