@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '067794e7d1eadcef2d7bb46e3703c30049dc6866',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '067794e7d1eadcef2d7bb46e3703c30049dc6866',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -25,6 +25,15 @@
             'reference' => 'f6fede4f94ced7c22ba63a9b8af0bf2dc38e3cb2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../altorouter/altorouter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'benoclock/alto-dispatcher' => array(
+            'pretty_version' => '1.3',
+            'version' => '1.3.0.0',
+            'reference' => 'fe7cbb66323a3d5025cc51941b1bdb6cc67be40c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../benoclock/alto-dispatcher',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

@@ -102,8 +102,6 @@ nav{
 
 
 }
-
-
 .bg{
     position: absolute;
     z-index: 6;
@@ -123,11 +121,14 @@ nav{
     z-index: 0;
 }
 .img-slider{
-
     position: absolute;
-    z-index: 0;
+    top: 0;
+    left: 100vw;
+
     width: 100vw;
     height: 100vh;
+
+    transition: 1s;
 
 }
 .slider-title{
@@ -138,7 +139,8 @@ nav{
     left: 10vw;
     width: 80vw;
     height: 10vh;
-
+    opacity: 0;
+    transition: 0.5s;
     text-align: center;
 
 }
@@ -146,6 +148,10 @@ nav{
     font-weight: 100;
     font-size: 5em;
     text-decoration: none}
+.slider-title a:hover{
+
+    text-decoration: underline;
+}
 .box-slider-bar{
     display: flex;
     width: 100vw;
@@ -155,11 +161,16 @@ nav{
     z-index:3;
 }
 .bar{
-    width: 50px;
+    opacity: 0.5;
+    width: 30px;
     border: solid rgba(255, 127, 80, 0.17) 5px;
+    border-radius: 30vh;
     margin: 1vw;
+    transition: 1s;
 }
 .active{
+    opacity: 1;
+    transition: 1s;
     border: Solid rgb(213, 99, 58) 5px;
 }
 .slider_button{

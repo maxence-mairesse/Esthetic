@@ -60,7 +60,7 @@
     <?php foreach($viewData['types'] as $type): ?>
         <?php if ($type->getPicture() !== null):?>
             <h3 class="slider-title display"> <a href="#"><?=$type->getName()?> </a> </h3>
-            <img src="<?= $absoluteURL?>/<?=$type->getPicture()?>" alt="img" class="display img-slider">
+            <img src="<?= $absoluteURL?>/<?=$type->getPicture()?>" alt="img" class=" img-slider">
             <div class="box-slider-bar">
 
                 <?php for ($i=0; $i<count($viewData['types'])-1;$i++):?>

@@ -3,47 +3,64 @@
 require_once  __DIR__. '/../vendor/autoload.php';
 
 $router = new AltoRouter();
+if (array_key_exists('BASE_URI', $_SERVER)){
+    $router->setBasePath($_SERVER['BASE_URI']);
 
-$router->setBasePath($_SERVER['BASE_URI']);
+}else{
+    $_SERVER['BASE_URI'] = '/';
+}
 
 $router->map(
     'GET',
     '/',
     [
-        'action'=>'home',
-        'controller'=>'app\controllers\MainController'],
+        'method'=>'home',
+        'controller'=>'app\controllers\MainController'
+    ],
     'home'
 
 );
 $router->map(
     'GET',
     '/prestations',
-    ['action'=>'prestations',
-        'controller'=>'app\controllers\MainController'],
+    [
+        'method'=>'prestations',
+        'controller'=>'app\controllers\MainController'
+    ],
     'prestations'
 );
 $router->map(
     'GET',
     '/prestations/[i:id]',
-    ['action'=>'prestationDetail',
-        'controller'=>'app\controllers\MainController'],
+    [
+        'method'=>'prestationDetail',
+        'controller'=>'app\controllers\MainController'
+    ],
     'prestationDetail'
 );
 
 
 $match=$router->match();
+//Utilisation d'une librairie externe pour le dispatcher https://packagist.org/packages/benoclock/alto-dispatcher
 
-if ($match){
+$dispatcher = new Dispatcher($match, '\app\controllers\ErrorController::error404');
 
-    $controllerName = $match['target']['controller'];
-    $controller = new $controllerName;
+$dispatcher->setControllersNamespace('app\controllers');
 
-    $methodName = $match['target']['action'];
-   $controller->$methodName($match['params']);
+$dispatcher->dispatch();
 
-
-}else{
-    $errorModel=new \app\controllers\ErrorController();
-    $errorModel->error404();
-
-}
+//
+//if ($match){
+//
+//    $controllerName = $match['target']['controller'];
+//    $controller = new $controllerName;
+//
+//    $methodName = $match['target']['action'];
+//   $controller->$methodName($match['params']);
+//
+//
+//}else{
+//    $errorModel=new \app\controllers\ErrorController();
+//    $errorModel->error404();
+//
+//}
